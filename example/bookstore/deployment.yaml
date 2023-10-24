@@ -1,0 +1,63 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bookstore
+spec:
+  selector:
+    app: bookstore
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstore
+  labels:
+    app: bookstore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookstore
+  template:
+    metadata:
+      labels:
+        app: bookstore
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/role: "test"
+        vault.hashicorp.com/agent-run-as-same-user: "true"
+        vault.hashicorp.com/namespace: "admin"
+
+        vault.hashicorp.com/agent-inject-secret-application.properties: "bookstore/database/creds/test"
+        vault.hashicorp.com/agent-inject-template-application.properties: |
+          {{- with secret "bookstore/database/creds/test" }}
+          spring.data.mongodb.uri=mongodb://{{ .Data.username }}:{{ .Data.password }}@${MONGODB_HOST}
+          spring.data.mongodb.database=test
+          {{- end }}
+        vault.hashicorp.com/agent-inject-command-application.properties: |
+          kill -TERM $(pidof java)
+
+    spec:
+      serviceAccountName: bookstore
+      shareProcessNamespace: true
+      containers:
+        - name: bookstore
+          image: rosemarywang/book:latest
+          ports:
+            - containerPort: 8080
+          env:
+          - name: SPRING_CONFIG_LOCATION
+            value: /vault/secrets/application.properties
+          - name: MONGODB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: connection_string
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 3000

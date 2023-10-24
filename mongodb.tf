@@ -12,4 +12,5 @@ locals {
   database_connection = split(":", replace(split(",", mongodbatlas_cluster.db.connection_strings.0.standard).0, "mongodb://", ""))
   url                 = local.database_connection.0
   port                = local.database_connection.1
+  database_srv        = replace(mongodbatlas_cluster.db.connection_strings.0.standard_srv, "mongodb+srv://", "")
 }
