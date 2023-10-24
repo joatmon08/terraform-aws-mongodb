@@ -1,46 +1,6 @@
 # This file is maintained automatically by "terraform init".
 # Manual edits may be lost in future updates.
 
-provider "registry.terraform.io/hashicorp/boundary" {
-  version     = "1.1.10"
-  constraints = ">= 1.0.0"
-  hashes = [
-    "h1:G+T1s3w1wI28jSSWMYiEVe57gINSskJMS+LBY1oUf/c=",
-    "zh:09e9de2a63c2cffe1dbc9d4963e84396c036db12f4cbb7f70717490f5c940a49",
-    "zh:0c81c14c5e671c9984f8bc3ea67cd0d3b4aba96e05ea90ae52ba2ad35bc6f7ea",
-    "zh:107a4c1653677dd74db8f854b00ad4ffde5e571f62646932ac7c02cad8732101",
-    "zh:22f9580166b4b0905fbca4d61e6070bc9adf555f6778f741c156de6c52ae44c1",
-    "zh:27be99b0fbea9d44f34aace70d89005f263e3cfbbe61602742f97002e7d2b71e",
-    "zh:2eae883ba423928d4807db421e13f9fcc547a1a2edee51ee68291783a06318d4",
-    "zh:3fd217a446b8c17c6c2fecc54fbb7740012adfaeb02ddcdedfbe351d8591acfc",
-    "zh:446471d004e8360e27ec11f571aa5a905f569ab2d5f5844127ae991dcec6c8d2",
-    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
-    "zh:87e57a6ad08ff2650b40f4ded793b1c861226d7d93d321d01d98c037f5107c44",
-    "zh:c82f9860d9aa0d52d0281d44e8206614e126111d6d5450ebe916b9f4fc68011d",
-    "zh:c9831dcc062b238bfb79ae19bb40c0b6635056a61510912ea07d8a8f2218b40f",
-  ]
-}
-
-provider "registry.terraform.io/hashicorp/consul" {
-  version     = "2.18.0"
-  constraints = ">= 2.18.0"
-  hashes = [
-    "h1:fpHbgFUF+uyPCG+RLVJbTjpBHR8EZOxZkCh4e6VB7tY=",
-    "zh:155f6899c8f1e0162169e4d09f426ea9a9738d74129f0ffc54b7570941c49cd4",
-    "zh:241ba909b387c349845b0371321af45ccbb00290edbe1ea0861ad8732951f718",
-    "zh:612f52be1fb5dd507b8064c67785313a531faad35873cba53f998f3766473335",
-    "zh:67fbd695381b9c5db83ffeeaec1bfdbcc477ccb1e9de1caff76a0186d4c85908",
-    "zh:7f88b151c9690a6addccbffe8484f0257344ef55424a9efb025dfddd052a4dc6",
-    "zh:8d954f3ffeb72b6c18cc5ae8c3189bb3a8cb66967b2106c7d0163009c12bba15",
-    "zh:913774c7eabc6e9078a1bd00347cc539b19a6f6b45dacbd21454dffdc9f4ae43",
-    "zh:9517558883f994649695643a6208079ed0445aaa0ac2dee69f88cb044d21c6c9",
-    "zh:a0211f596e35bd1b8d4bb9cda321cb1555a427a8d3f6724fe09893168fac9b7e",
-    "zh:a70eaa0a88f677f901855a4ab908ddcf961e4afaf3a0147b08faaead57b4fe07",
-    "zh:b02f5cd94ab236d988cfec531c56c199e3087803f1b2908a1a2b6da8a57b3751",
-    "zh:f3d3efac504c9484a025beb919d22b290aa6dbff256f6e86c1f8ce7817e077e5",
-  ]
-}
-
 provider "registry.terraform.io/hashicorp/vault" {
   version     = "3.21.0"
   constraints = ">= 3.20.0"

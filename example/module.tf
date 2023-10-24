@@ -1,46 +1,3 @@
-variable "boundary_address" {
-  type        = string
-  description = "Boundary address"
-}
-
-variable "boundary_username" {
-  type        = string
-  description = "Boundary address"
-}
-
-variable "boundary_password" {
-  type        = string
-  description = "Boundary password"
-  sensitive   = true
-}
-
-variable "boundary_scope_id" {
-  type        = string
-  description = "Boundary scope ID for setting up target to database"
-}
-
-variable "boundary_credentials_store_id" {
-  type        = string
-  description = "Boundary credentials store ID"
-}
-
-variable "consul_address" {
-  type        = string
-  description = "Consul address"
-}
-
-variable "consul_token" {
-  type        = string
-  description = "Consul token"
-  sensitive   = true
-}
-
-variable "consul_datacenter" {
-  type        = string
-  description = "Consul datacenter"
-  default     = null
-}
-
 variable "vault_address" {
   type        = string
   description = "Vault address"
@@ -102,16 +59,6 @@ variable "additional_service_account_names" {
 
 module "test" {
   source = "../."
-
-  boundary_address              = var.boundary_address
-  boundary_username             = var.boundary_username
-  boundary_password             = var.boundary_password
-  boundary_scope_id             = var.boundary_scope_id
-  boundary_credentials_store_id = var.boundary_credentials_store_id
-
-  consul_address    = var.consul_address
-  consul_token      = var.consul_token
-  consul_datacenter = var.consul_datacenter
 
   vault_address   = var.vault_address
   vault_token     = var.vault_token
